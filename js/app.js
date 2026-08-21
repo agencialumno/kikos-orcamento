@@ -274,8 +274,12 @@ function mostrarModalContato() {
         <input type="text" id="input-cep" placeholder="00000-000" inputmode="numeric" maxlength="9">
       </div>
       <div class="campo-contato" id="grupo-endereco" style="display:none">
-        <label for="input-endereco">Endereço completo</label>
-        <input type="text" id="input-endereco" placeholder="Rua, número, bairro, cidade">
+        <label for="input-endereco">Endereço</label>
+        <input type="text" id="input-endereco" placeholder="Preenchido automaticamente pelo CEP">
+      </div>
+      <div class="campo-contato" id="grupo-numero" style="display:none">
+        <label for="input-numero">Número</label>
+        <input type="text" id="input-numero" placeholder="Ex: 123" inputmode="numeric">
       </div>
       <div class="campo-contato" id="grupo-email" style="display:none">
         <label for="input-email">E-mail</label>
@@ -303,6 +307,7 @@ function mostrarModalContato() {
     document.getElementById("grupo-cpf"),
     document.getElementById("grupo-cep"),
     document.getElementById("grupo-endereco"),
+    document.getElementById("grupo-numero"),
     document.getElementById("grupo-email"),
   ];
 
@@ -345,8 +350,36 @@ document.addEventListener("input", (e) => {
   if (e.target && e.target.id === "input-cep") {
     const digitos = e.target.value.replace(/\D/g, "").slice(0, 8);
     e.target.value = digitos.length === 8 ? formatarCEP(digitos) : digitos;
+    if (digitos.length === 8) buscarEnderecoPorCEP(digitos);
+  }
+  if (e.target && e.target.id === "input-numero") {
+    e.target.value = e.target.value.replace(/\D/g, "");
   }
 });
+
+async function buscarEnderecoPorCEP(cepDigitos) {
+  const campoEndereco = document.getElementById("input-endereco");
+  if (!campoEndereco) return;
+  campoEndereco.placeholder = "Buscando endereço...";
+  try {
+    const resposta = await fetch(`https://viacep.com.br/ws/${cepDigitos}/json/`);
+    const dados = await resposta.json();
+    if (dados.erro) {
+      campoEndereco.placeholder = "CEP não encontrado, digite manualmente";
+      return;
+    }
+    const partes = [
+      dados.logradouro,
+      dados.bairro,
+      dados.localidade && dados.uf ? `${dados.localidade} - ${dados.uf}` : (dados.localidade || dados.uf)
+    ].filter(Boolean);
+    campoEndereco.value = partes.join(", ");
+    campoEndereco.placeholder = "Preenchido automaticamente pelo CEP";
+  } catch (erro) {
+    console.error("Erro ao buscar CEP:", erro);
+    campoEndereco.placeholder = "Não foi possível buscar, digite manualmente";
+  }
+}
 
 async function enviarPedido(tipoDocumento) {
   const nome = document.getElementById("input-nome").value.trim();
@@ -376,6 +409,7 @@ async function enviarPedido(tipoDocumento) {
     const cpf = document.getElementById("input-cpf").value.trim();
     const cep = document.getElementById("input-cep").value.trim();
     const endereco = document.getElementById("input-endereco").value.trim();
+    const numero = document.getElementById("input-numero").value.trim();
     const email = document.getElementById("input-email").value.trim();
     const digitosCPF = cpf.replace(/\D/g, "");
     const digitosCEP = cep.replace(/\D/g, "");
@@ -392,6 +426,10 @@ async function enviarPedido(tipoDocumento) {
       erro.textContent = "Informe seu endereço completo.";
       return;
     }
+    if (numero.length < 1) {
+      erro.textContent = "Informe o número do endereço.";
+      return;
+    }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       erro.textContent = "Informe um e-mail válido.";
       return;
@@ -399,8 +437,8 @@ async function enviarPedido(tipoDocumento) {
 
     const cpfFormatado = formatarCPF(digitosCPF);
     const cepFormatado = formatarCEP(digitosCEP);
-    dadosDocumento = { tipoDocumento: "cpf", cpf: digitosCPF, cep: digitosCEP, endereco: endereco, email: email };
-    linhaIdentificacao = `CPF: ${cpfFormatado}\nEndereço: ${endereco}\nCEP: ${cepFormatado}\nE-mail: ${email}`;
+    dadosDocumento = { tipoDocumento: "cpf", cpf: digitosCPF, cep: digitosCEP, endereco: endereco, numero: numero, email: email };
+    linhaIdentificacao = `CPF: ${cpfFormatado}\nEndereço: ${endereco}, nº ${numero}\nCEP: ${cepFormatado}\nE-mail: ${email}`;
   }
 
   if (digitosTelefone.length < 10) {
