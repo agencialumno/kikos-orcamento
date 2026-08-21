@@ -452,6 +452,32 @@ async function enviarPedido(tipoDocumento) {
 
   const itens = carrinho.map(i => ({ nome: i.nome, codigo: i.codigo || null, quantidade: i.quantidade, categoria: i.categoria }));
 
+  // Verifica se esse telefone já pediu antes (cliente recorrente)
+  let clienteRecorrente = false;
+  let totalPedidosAnteriores = 0;
+  try {
+    const pedidosAnteriores = await db.collection("pedidos").where("telefone", "==", digitosTelefone).get();
+    totalPedidosAnteriores = pedidosAnteriores.size;
+    clienteRecorrente = totalPedidosAnteriores > 0;
+  } catch (erroConsulta) {
+    console.error("Erro ao consultar pedidos anteriores:", erroConsulta);
+  }
+
+  // Calcula a prioridade do lead com base no carrinho (linhas premium ou volume alto)
+  const linhasPremium = ["Titan", "Monster", "Titanium"];
+  const totalItens = itens.reduce((soma, i) => soma + i.quantidade, 0);
+  const temLinhaPremium = itens.some(i => linhasPremium.includes(i.categoria));
+  let prioridade = "baixa";
+  if (temLinhaPremium || totalItens >= 8) prioridade = "alta";
+  else if (totalItens >= 4) prioridade = "media";
+
+  // Datas simples (pro n8n) e datas Firestore (pra gravar no banco)
+  const agora = Date.now();
+  const umDia = 24 * 60 * 60 * 1000;
+  const followUpDia1Iso = new Date(agora + 1 * umDia).toISOString();
+  const followUpDia3Iso = new Date(agora + 3 * umDia).toISOString();
+  const followUpDia7Iso = new Date(agora + 7 * umDia).toISOString();
+
   const pedido = {
     nome: nome,
     ...dadosDocumento,
@@ -459,7 +485,25 @@ async function enviarPedido(tipoDocumento) {
     itens: itens,
     status: "aguardando",
     canal: "site",
-    horario: firebase.firestore.FieldValue.serverTimestamp()
+    horario: firebase.firestore.FieldValue.serverTimestamp(),
+    prioridade: prioridade,
+    clienteRecorrente: clienteRecorrente,
+    totalPedidosAnteriores: totalPedidosAnteriores,
+    followUpDia1: firebase.firestore.Timestamp.fromDate(new Date(followUpDia1Iso)),
+    followUpDia3: firebase.firestore.Timestamp.fromDate(new Date(followUpDia3Iso)),
+    followUpDia7: firebase.firestore.Timestamp.fromDate(new Date(followUpDia7Iso))
+  };
+
+  // Payload separado pro n8n — sem os tipos especiais do Firestore, só texto/número simples
+  const payloadNotificacaoJean = {
+    nome: nome,
+    tipoDocumento: dadosDocumento.tipoDocumento,
+    telefone: digitosTelefone,
+    itens: itens,
+    prioridade: prioridade,
+    clienteRecorrente: clienteRecorrente,
+    totalPedidosAnteriores: totalPedidosAnteriores,
+    followUpDia3: followUpDia3Iso
   };
 
   try {
@@ -468,6 +512,16 @@ async function enviarPedido(tipoDocumento) {
     // Mesmo que o registro falhe, o cliente ainda deve conseguir falar com o atendente
     console.error("Erro ao salvar pedido no Firebase:", erroFirebase);
   }
+
+  // Notifica o Jean automaticamente via WhatsApp — roda em segundo plano,
+  // o cliente não vê nada disso e não precisa esperar a resposta.
+  fetch("https://kikos-bot.onrender.com/webhook/pedido-site", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payloadNotificacaoJean)
+  }).catch(erroWebhook => {
+    console.error("Erro ao notificar n8n:", erroWebhook);
+  });
 
   const linkWhatsApp = montarLinkWhatsApp(nome, linhaIdentificacao, itens);
 
