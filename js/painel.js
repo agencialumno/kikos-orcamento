@@ -13,6 +13,16 @@ function formatarCNPJExibicao(digitos) {
   return digitos.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
 }
 
+function formatarCPFExibicao(digitos) {
+  if (!digitos || digitos.length !== 11) return digitos || "";
+  return digitos.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+}
+
+function formatarCEPExibicao(digitos) {
+  if (!digitos || digitos.length !== 8) return digitos || "";
+  return digitos.replace(/^(\d{5})(\d{3})$/, "$1-$2");
+}
+
 function linkWhatsAppCliente(telefone) {
   const digitos = (telefone || "").replace(/\D/g, "");
   if (!digitos) return null;
@@ -41,6 +51,10 @@ function gerarCardPedido(id, pedido) {
          <div>
            <strong>${pedido.nome || "Cliente sem nome"}</strong>
            ${pedido.cnpj ? `<div class="pedido-cnpj">CNPJ: ${formatarCNPJExibicao(pedido.cnpj)}</div>` : ""}
+           ${pedido.cpf ? `<div class="pedido-cnpj">CPF: ${formatarCPFExibicao(pedido.cpf)}</div>` : ""}
+           ${pedido.endereco ? `<div class="pedido-cnpj">Endereço: ${pedido.endereco}</div>` : ""}
+           ${pedido.cep ? `<div class="pedido-cnpj">CEP: ${formatarCEPExibicao(pedido.cep)}</div>` : ""}
+           ${pedido.email ? `<div class="pedido-cnpj">E-mail: ${pedido.email}</div>` : ""}
          </div>
          ${linkWhatsAppCliente(pedido.telefone) ? `<a href="${linkWhatsAppCliente(pedido.telefone)}" target="_blank" class="pedido-whatsapp">Abrir WhatsApp</a>` : ""}
        </div>`

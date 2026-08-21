@@ -251,10 +251,37 @@ function mostrarModalContato() {
         <label for="input-nome">Nome</label>
         <input type="text" id="input-nome" placeholder="Seu nome">
       </div>
+
       <div class="campo-contato">
+        <label>Tipo de documento</label>
+        <div class="toggle-tipo-doc">
+          <button type="button" class="btn-tipo-doc ativo" id="btn-tipo-cnpj" data-tipo="cnpj">CNPJ</button>
+          <button type="button" class="btn-tipo-doc" id="btn-tipo-cpf" data-tipo="cpf">CPF</button>
+        </div>
+      </div>
+
+      <div class="campo-contato" id="grupo-cnpj">
         <label for="input-cnpj">CNPJ</label>
         <input type="text" id="input-cnpj" placeholder="00.000.000/0000-00" inputmode="numeric" maxlength="18">
       </div>
+
+      <div class="campo-contato" id="grupo-cpf" style="display:none">
+        <label for="input-cpf">CPF</label>
+        <input type="text" id="input-cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14">
+      </div>
+      <div class="campo-contato" id="grupo-cep" style="display:none">
+        <label for="input-cep">CEP</label>
+        <input type="text" id="input-cep" placeholder="00000-000" inputmode="numeric" maxlength="9">
+      </div>
+      <div class="campo-contato" id="grupo-endereco" style="display:none">
+        <label for="input-endereco">Endereço completo</label>
+        <input type="text" id="input-endereco" placeholder="Rua, número, bairro, cidade">
+      </div>
+      <div class="campo-contato" id="grupo-email" style="display:none">
+        <label for="input-email">E-mail</label>
+        <input type="email" id="input-email" placeholder="seuemail@exemplo.com">
+      </div>
+
       <div class="campo-contato">
         <label for="input-telefone">WhatsApp</label>
         <input type="tel" id="input-telefone" placeholder="(21) 90000-0000">
@@ -268,11 +295,42 @@ function mostrarModalContato() {
   `;
   document.body.appendChild(overlay);
 
-  document.getElementById("btn-confirmar-contato").addEventListener("click", enviarPedido);
+  let tipoDocumento = "cnpj";
+  const btnCnpj = document.getElementById("btn-tipo-cnpj");
+  const btnCpf = document.getElementById("btn-tipo-cpf");
+  const grupoCnpj = document.getElementById("grupo-cnpj");
+  const gruposCpf = [
+    document.getElementById("grupo-cpf"),
+    document.getElementById("grupo-cep"),
+    document.getElementById("grupo-endereco"),
+    document.getElementById("grupo-email"),
+  ];
+
+  function selecionarTipo(tipo) {
+    tipoDocumento = tipo;
+    btnCnpj.classList.toggle("ativo", tipo === "cnpj");
+    btnCpf.classList.toggle("ativo", tipo === "cpf");
+    grupoCnpj.style.display = tipo === "cnpj" ? "" : "none";
+    gruposCpf.forEach(g => g.style.display = tipo === "cpf" ? "" : "none");
+    document.getElementById("erro-contato").textContent = "";
+  }
+
+  btnCnpj.addEventListener("click", () => selecionarTipo("cnpj"));
+  btnCpf.addEventListener("click", () => selecionarTipo("cpf"));
+
+  document.getElementById("btn-confirmar-contato").addEventListener("click", () => enviarPedido(tipoDocumento));
 }
 
 function formatarCNPJ(digitos) {
   return digitos.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+}
+
+function formatarCPF(digitos) {
+  return digitos.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+}
+
+function formatarCEP(digitos) {
+  return digitos.replace(/^(\d{5})(\d{3})$/, "$1-$2");
 }
 
 document.addEventListener("input", (e) => {
@@ -280,25 +338,71 @@ document.addEventListener("input", (e) => {
     const digitos = e.target.value.replace(/\D/g, "").slice(0, 14);
     e.target.value = digitos.length === 14 ? formatarCNPJ(digitos) : digitos;
   }
+  if (e.target && e.target.id === "input-cpf") {
+    const digitos = e.target.value.replace(/\D/g, "").slice(0, 11);
+    e.target.value = digitos.length === 11 ? formatarCPF(digitos) : digitos;
+  }
+  if (e.target && e.target.id === "input-cep") {
+    const digitos = e.target.value.replace(/\D/g, "").slice(0, 8);
+    e.target.value = digitos.length === 8 ? formatarCEP(digitos) : digitos;
+  }
 });
 
-async function enviarPedido() {
+async function enviarPedido(tipoDocumento) {
   const nome = document.getElementById("input-nome").value.trim();
-  const cnpj = document.getElementById("input-cnpj").value.trim();
   const telefone = document.getElementById("input-telefone").value.trim();
   const erro = document.getElementById("erro-contato");
-
-  const digitosCNPJ = cnpj.replace(/\D/g, "");
   const digitosTelefone = telefone.replace(/\D/g, "");
 
   if (nome.length < 2) {
     erro.textContent = "Informe seu nome.";
     return;
   }
-  if (digitosCNPJ.length !== 14) {
-    erro.textContent = "Informe um CNPJ válido (14 dígitos).";
-    return;
+
+  let dadosDocumento = {};
+  let linhaIdentificacao = "";
+
+  if (tipoDocumento === "cnpj") {
+    const cnpj = document.getElementById("input-cnpj").value.trim();
+    const digitosCNPJ = cnpj.replace(/\D/g, "");
+    if (digitosCNPJ.length !== 14) {
+      erro.textContent = "Informe um CNPJ válido (14 dígitos).";
+      return;
+    }
+    const cnpjFormatado = formatarCNPJ(digitosCNPJ);
+    dadosDocumento = { tipoDocumento: "cnpj", cnpj: digitosCNPJ };
+    linhaIdentificacao = `CNPJ: ${cnpjFormatado}`;
+  } else {
+    const cpf = document.getElementById("input-cpf").value.trim();
+    const cep = document.getElementById("input-cep").value.trim();
+    const endereco = document.getElementById("input-endereco").value.trim();
+    const email = document.getElementById("input-email").value.trim();
+    const digitosCPF = cpf.replace(/\D/g, "");
+    const digitosCEP = cep.replace(/\D/g, "");
+
+    if (digitosCPF.length !== 11) {
+      erro.textContent = "Informe um CPF válido (11 dígitos).";
+      return;
+    }
+    if (digitosCEP.length !== 8) {
+      erro.textContent = "Informe um CEP válido (8 dígitos).";
+      return;
+    }
+    if (endereco.length < 5) {
+      erro.textContent = "Informe seu endereço completo.";
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      erro.textContent = "Informe um e-mail válido.";
+      return;
+    }
+
+    const cpfFormatado = formatarCPF(digitosCPF);
+    const cepFormatado = formatarCEP(digitosCEP);
+    dadosDocumento = { tipoDocumento: "cpf", cpf: digitosCPF, cep: digitosCEP, endereco: endereco, email: email };
+    linhaIdentificacao = `CPF: ${cpfFormatado}\nEndereço: ${endereco}\nCEP: ${cepFormatado}\nE-mail: ${email}`;
   }
+
   if (digitosTelefone.length < 10) {
     erro.textContent = "Informe um WhatsApp válido com DDD.";
     return;
@@ -309,11 +413,10 @@ async function enviarPedido() {
   btnConfirmar.textContent = "Enviando...";
 
   const itens = carrinho.map(i => ({ nome: i.nome, codigo: i.codigo || null, quantidade: i.quantidade, categoria: i.categoria }));
-  const cnpjFormatado = formatarCNPJ(digitosCNPJ);
 
   const pedido = {
     nome: nome,
-    cnpj: digitosCNPJ,
+    ...dadosDocumento,
     telefone: digitosTelefone,
     itens: itens,
     status: "aguardando",
@@ -328,7 +431,7 @@ async function enviarPedido() {
     console.error("Erro ao salvar pedido no Firebase:", erroFirebase);
   }
 
-  const linkWhatsApp = montarLinkWhatsApp(nome, cnpjFormatado, itens);
+  const linkWhatsApp = montarLinkWhatsApp(nome, linhaIdentificacao, itens);
 
   carrinho = [];
   renderizarCarrinho();
@@ -337,7 +440,7 @@ async function enviarPedido() {
   window.location.href = linkWhatsApp;
 }
 
-function montarLinkWhatsApp(nome, cnpjFormatado, itens) {
+function montarLinkWhatsApp(nome, linhaIdentificacao, itens) {
   // agrupa os itens por linha/categoria, mantendo a ordem em que cada linha apareceu no carrinho
   const porLinha = new Map();
   itens.forEach(i => {
@@ -355,7 +458,7 @@ function montarLinkWhatsApp(nome, cnpjFormatado, itens) {
 
   const texto =
     `Olá! Meu nome é ${nome}.\n` +
-    `CNPJ: ${cnpjFormatado}\n` +
+    `${linhaIdentificacao}\n` +
     `Gostaria de um orçamento para os seguintes equipamentos:\n\n` +
     `${listaCompleta}\n\n` +
     `Pode me ajudar?`;

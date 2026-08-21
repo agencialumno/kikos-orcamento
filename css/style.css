@@ -516,6 +516,30 @@ body {
   border-color: var(--cor-destaque);
 }
 
+.toggle-tipo-doc {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-tipo-doc {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background: var(--cor-branca);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cor-escura);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-tipo-doc.ativo {
+  border-color: var(--cor-destaque);
+  background: var(--cor-destaque);
+  color: var(--cor-branca);
+}
+
 .erro-contato {
   color: var(--cor-destaque);
   font-size: 14px;
