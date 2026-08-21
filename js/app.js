@@ -59,7 +59,7 @@ function mostrarModalQuantidade(produto) {
   overlay.innerHTML = `
     <div class="modal-quantidade">
       <img src="${produto.foto}" alt="${produto.nome}" onerror="this.style.display='none'">
-      <h3>${produto.nome}</h3>
+      <h3>${produto.nome}${produto.codigo ? ` <span class="produto-codigo">${produto.codigo}</span>` : ""}</h3>
       <div class="modal-quantidade-controle">
         <button onclick="alterarQuantidade(-1)">−</button>
         <input type="number" id="input-quantidade" value="1" min="1" max="99">
@@ -132,7 +132,7 @@ function renderizarCarrinho() {
     <div class="carrinho-item">
       <img src="${i.foto}" alt="${i.nome}">
       <div class="carrinho-item-info">
-        <p>${i.nome}</p>
+        <p>${i.nome}${i.codigo ? ` <span class="produto-codigo">${i.codigo}</span>` : ""}</p>
         <span>Quantidade: ${i.quantidade}</span>
       </div>
       <button class="btn-remover" onclick="removerDoCarrinho(${i.id})">×</button>
@@ -194,7 +194,7 @@ function gerarCardHTML(p) {
       ${p.destaque ? `<div class="badge-destaque">Destaque</div>` : ""}
       <img src="${p.foto}" alt="${p.nome}" onerror="this.style.display='none'">
       <div class="produto-info">
-        <p class="produto-nome">${p.nome}</p>
+        <p class="produto-nome">${p.nome}${p.codigo ? ` <span class="produto-codigo">${p.codigo}</span>` : ""}</p>
       </div>
       <button class="btn-add" onclick="adicionarAoCarrinho(${p.id})">Adicionar</button>
     </div>
@@ -308,7 +308,7 @@ async function enviarPedido() {
   btnConfirmar.disabled = true;
   btnConfirmar.textContent = "Enviando...";
 
-  const itens = carrinho.map(i => ({ nome: i.nome, quantidade: i.quantidade, categoria: i.categoria }));
+  const itens = carrinho.map(i => ({ nome: i.nome, codigo: i.codigo || null, quantidade: i.quantidade, categoria: i.categoria }));
   const cnpjFormatado = formatarCNPJ(digitosCNPJ);
 
   const pedido = {
@@ -348,7 +348,7 @@ function montarLinkWhatsApp(nome, cnpjFormatado, itens) {
 
   const blocos = [];
   for (const [linha, itensDaLinha] of porLinha) {
-    const listaItens = itensDaLinha.map(i => `• ${i.quantidade}x ${i.nome}`).join("\n");
+    const listaItens = itensDaLinha.map(i => `• ${i.quantidade}x ${i.nome}${i.codigo ? ` (${i.codigo})` : ""}`).join("\n");
     blocos.push(`*Linha ${linha}*\n${listaItens}`);
   }
   const listaCompleta = blocos.join("\n\n");
