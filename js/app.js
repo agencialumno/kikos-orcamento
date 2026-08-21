@@ -308,7 +308,7 @@ async function enviarPedido() {
   btnConfirmar.disabled = true;
   btnConfirmar.textContent = "Enviando...";
 
-  const itens = carrinho.map(i => ({ nome: i.nome, quantidade: i.quantidade }));
+  const itens = carrinho.map(i => ({ nome: i.nome, quantidade: i.quantidade, categoria: i.categoria }));
   const cnpjFormatado = formatarCNPJ(digitosCNPJ);
 
   const pedido = {
@@ -338,12 +338,26 @@ async function enviarPedido() {
 }
 
 function montarLinkWhatsApp(nome, cnpjFormatado, itens) {
-  const listaItens = itens.map(i => `• ${i.quantidade}x ${i.nome}`).join("\n");
+  // agrupa os itens por linha/categoria, mantendo a ordem em que cada linha apareceu no carrinho
+  const porLinha = new Map();
+  itens.forEach(i => {
+    const linha = i.categoria || "Outros";
+    if (!porLinha.has(linha)) porLinha.set(linha, []);
+    porLinha.get(linha).push(i);
+  });
+
+  const blocos = [];
+  for (const [linha, itensDaLinha] of porLinha) {
+    const listaItens = itensDaLinha.map(i => `• ${i.quantidade}x ${i.nome}`).join("\n");
+    blocos.push(`*Linha ${linha}*\n${listaItens}`);
+  }
+  const listaCompleta = blocos.join("\n\n");
+
   const texto =
     `Olá! Meu nome é ${nome}.\n` +
     `CNPJ: ${cnpjFormatado}\n` +
     `Gostaria de um orçamento para os seguintes equipamentos:\n\n` +
-    `${listaItens}\n\n` +
+    `${listaCompleta}\n\n` +
     `Pode me ajudar?`;
 
   return `https://wa.me/${NUMERO_ATENDENTE}?text=${encodeURIComponent(texto)}`;

@@ -11,11 +11,11 @@ const produtos = [
   { id: 4, nome: "Puxada Alta", categoria: "Titan", foto: "assets/images/produtos/titan/y920.jpg" },
   { id: 5, nome: "Remada Baixa", categoria: "Titan", foto: "assets/images/produtos/titan/y925.jpg" },
   { id: 6, nome: "Remada", categoria: "Titan", foto: "assets/images/produtos/titan/y930.jpg" },
-  { id: 7, nome: "Desenvolvimento de Ombro", categoria: "Titan", foto: "assets/images/produtos/titan/y935.jpg" },
+  { id: 7, nome: "Desenvolvimento Ombro", categoria: "Titan", foto: "assets/images/produtos/titan/y935.jpg" },
   { id: 8, nome: "Glúteo", categoria: "Titan", foto: "assets/images/produtos/titan/y940.jpg" },
-  { id: 9, nome: "Cadeira Extensora", categoria: "Titan", foto: "assets/images/produtos/titan/y960.jpg" },
-  { id: 10, nome: "Tríceps Paralela Anilhado", categoria: "Titan", foto: "assets/images/produtos/titan/y965.jpg" },
-  { id: 11, nome: "Scott Anilhado", categoria: "Titan", foto: "assets/images/produtos/titan/y970.jpg" },
+  { id: 9, nome: "Extensora", categoria: "Titan", foto: "assets/images/produtos/titan/y960.jpg" },
+  { id: 10, nome: "Tríceps", categoria: "Titan", foto: "assets/images/produtos/titan/y965.jpg" },
+  { id: 11, nome: "Bíceps", categoria: "Titan", foto: "assets/images/produtos/titan/y970.jpg" },
 
   // ── LINHA MONSTER ────────────────────────────────────
   { id: 12, nome: "Super Horizontal Multi Press", categoria: "Monster", foto: "assets/images/produtos/monster/pt01.jpg" },
@@ -262,5 +262,12 @@ const produtos = [
   { id: 229, nome: "Kit Piso de Proteção", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_kit_piso_protecao.jpg" },
   { id: 230, nome: "Step Light", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_step_light.jpg" },
   { id: 231, nome: "Suporte Barra Olímpica", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_suporte_barra_olimpica.jpg" },
+
+  // ── DUAL (nova linha — fotos hotlinked direto do site oficial kikos.com.br) ──
+  { id: 232, nome: "Puxador Pulley com Remada", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_i001958_-_ttds3031_-_pulley_com_remada_-_linha_dual_-_kikos_pro_1.jpg" },
+  { id: 233, nome: "Bíceps e Tríceps Press", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttds4042_-_biceps_e_triceps_-_linha_dual_-_kikos_pro_-_sku_i001960_1.jpg" },
+  { id: 234, nome: "Mult Press", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttds13_-_mult_press_-_linha_dual_-_sku_i001957_1.jpg" },
+  { id: 235, nome: "Cadeira Adutora e Abdutora", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttds7475_-_cadeira_adutora_e_abdutora_-_linha_dual_-_kikos_pro_-_sku_i001961.jpg" },
+  { id: 236, nome: "Cross com Smith", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttms22_-_cross_com_smith_-_linha_dual_001_2.jpg" },
 
 ];
