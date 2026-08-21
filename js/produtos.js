@@ -1,7 +1,35 @@
 // Catálogo de produtos — SEM preço, parcelamento ou desconto.
-// Catálogo completo: Titan, Monster, Monster Select e as 10 linhas do PRO
-// (Esteiras, Bikes, Elípticos, Escada e Remo, Hammer Force, Alfa, Classic,
-// Plate Load, Titanium, Station, Acessórios).
+// Catálogo completo: Titan, Monster, Esteiras, Bikes, Elípticos, Escada e Remo,
+// Hammer Force, Alfa, Classic, Plate Load, Titanium, Station, Acessórios, Dual.
+// (Monster Select foi mesclada dentro de Monster.)
+//
+// PENDENTE — aguardando foto oficial (produtos ainda não publicados no site
+// da Kikos nem encontrados em nenhuma fonte; status "NOVO" na planilha em
+// 21/08/2026). Adicionar assim que houver foto:
+//
+//   MONSTER GOAT (24 itens, entram em categoria "Monster"):
+//   MG12 Peck Deck (I027868) · MG13 Supino Reto (I027865) · MG20 Crossover (I027863)
+//   MG21 Deltoide (I027864) · MG22 Peitoral Dorsal (I027869) · MG23 Desenvolvimento
+//   de Ombros (I027873) · MG30 Pull Down (I027876) · MG31 Remada Baixa (I027877)
+//   MG33 Puxada Alta (I027875) · MG34 Remada (I027874) · MG40 Bíceps (I027861)
+//   MG42 Tríceps (I027862) · MG51 Abdominal (I027860) · MG52 Lombar (I027859)
+//   MG53 Total Hip (I027858) · MG60 Gráviton (I027866) · MG70 Leg Horizontal
+//   (I027872) · MG71 Cadeira Extensora (I027854) · MG72 Cadeira Flexora (I027856)
+//   MG73 Mesa Flexora (I027855) · MG74 Cadeira Abdutora (I027870) · MG75 Cadeira
+//   Adutora (I027871) · MG77 Panturrilha em Pé (I027867) · MG78 Glúteo (I027857)
+//
+//   HAMMER FORCE "PM" (7 itens, entram em categoria "Hammer Force"):
+//   PM 2037 Bíceps (I027773) · PM 2038 Supino Reto (I027774) · PM 2041
+//   Desenvolvimento de Ombro (I027777) · PM 2042 Supino Declinado (I027778)
+//   PM 2043 Tríceps (I027779) · PM 2046 Abdominal (I027782) · PM 2048 Cadeira
+//   Extensora (I027784)
+//
+//   DUAL: falta 1 item — "Cadeira Flexora e Extensora" (TTDS7172i / TTDS7172)
+//
+//   TITANIUM: "Scott Máquina" (categoria Titanium) sem código confirmado —
+//   não encontrado no site nem na planilha, pode não existir como produto
+//   separado. Verificar antes de publicar.
+//
 const produtos = [
 
   // ── LINHA TITAN ──────────────────────────────────────
@@ -139,36 +167,36 @@ const produtos = [
   { id: 114, nome: "Gráviton", codigo: "CLS60", categoria: "Classic", foto: "assets/images/produtos/pro/classic_graviton.jpg" },
 
   // ── PRO · PLATE LOAD ─────────────────────────────────
-  { id: 115, nome: "Supino Reto", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_reto.jpg" },
-  { id: 116, nome: "Supino Inclinado", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_inclinado.jpg" },
-  { id: 117, nome: "Supino Declinado", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_declinado.jpg" },
-  { id: 118, nome: "Agachamento Articulado", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_agachamento_articulado.jpg" },
-  { id: 119, nome: "Supino Guiado", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_guiado.jpg" },
-  { id: 120, nome: "Bíceps", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_biceps.jpg" },
-  { id: 121, nome: "Tríceps", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_triceps.jpg" },
-  { id: 122, nome: "Peitoral Articulado Inclinado", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_peitoral_articulado_inclinado.jpg" },
-  { id: 123, nome: "Desenvolvimento", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_desenvolvimento.jpg" },
-  { id: 124, nome: "Abdominal Articulado", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_abdominal_articulado.jpg" },
-  { id: 125, nome: "Remada Baixa", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_remada_baixa.jpg" },
-  { id: 126, nome: "Remada Inclinada Linear", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_remada_inclinada_linear.jpg" },
-  { id: 127, nome: "Puxada Alta", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_puxada_alta.jpg" },
-  { id: 128, nome: "Remada", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_remada.jpg" },
-  { id: 129, nome: "Puxada Alta com Supino", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_puxada_alta_com_supino.jpg" },
-  { id: 130, nome: "Pullover", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_pullover.jpg" },
-  { id: 131, nome: "Leg Press 45°", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_leg_press_45.jpg" },
-  { id: 132, nome: "Cadeira Extensora", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_cadeira_extensora.jpg" },
-  { id: 133, nome: "Flexora em Pé", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_flexora_em_pe.jpg" },
-  { id: 134, nome: "Abdutora", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_abdutora.jpg" },
-  { id: 135, nome: "Leg Press 90°", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_leg_press_90.jpg" },
-  { id: 136, nome: "Leg Press Unilateral", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_leg_press_unilateral.jpg" },
-  { id: 137, nome: "Agachamento Sumo", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_agachamento_sumo.jpg" },
-  { id: 138, nome: "Panturrilha Sentada", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_panturrilha_sentada.jpg" },
-  { id: 139, nome: "Glúteo", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_gluteo.jpg" },
-  { id: 140, nome: "Panturrilha em Pé", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_panturrilha_em_pe.jpg" },
-  { id: 141, nome: "Levantamento Terra Olímpico", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_levantamento_terra_olimpico.jpg" },
-  { id: 142, nome: "Agachamento Sissy", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_agachamento_sissy.jpg" },
-  { id: 143, nome: "Elevação Pélvica em Pé", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_elevacao_pelvica_em_pe.jpg" },
-  { id: 144, nome: "Gaiola Agachamento", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_gaiola_agachamento.jpg" },
+  { id: 115, nome: "Supino Reto", codigo: "PR13", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_reto.jpg" },
+  { id: 116, nome: "Supino Inclinado", codigo: "PR14", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_inclinado.jpg" },
+  { id: 117, nome: "Supino Declinado", codigo: "PR15", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_declinado.jpg" },
+  { id: 118, nome: "Agachamento Articulado", codigo: "PR16", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_agachamento_articulado.jpg" },
+  { id: 119, nome: "Supino Guiado", codigo: "PR17", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_supino_guiado.jpg" },
+  { id: 120, nome: "Bíceps", codigo: "PR18", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_biceps.jpg" },
+  { id: 121, nome: "Tríceps", codigo: "PR19", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_triceps.jpg" },
+  { id: 122, nome: "Peitoral Articulado Inclinado", codigo: "PR21", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_peitoral_articulado_inclinado.jpg" },
+  { id: 123, nome: "Desenvolvimento", codigo: "PR23", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_desenvolvimento.jpg" },
+  { id: 124, nome: "Abdominal Articulado", codigo: "PR24", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_abdominal_articulado.jpg" },
+  { id: 125, nome: "Remada Baixa", codigo: "PR31", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_remada_baixa.jpg" },
+  { id: 126, nome: "Remada Inclinada Linear", codigo: "PR32", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_remada_inclinada_linear.jpg" },
+  { id: 127, nome: "Puxada Alta", codigo: "PR33", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_puxada_alta.jpg" },
+  { id: 128, nome: "Remada", codigo: "PR34", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_remada.jpg" },
+  { id: 129, nome: "Puxada Alta com Supino", codigo: "PR35", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_puxada_alta_com_supino.jpg" },
+  { id: 130, nome: "Pullover", codigo: "PR36", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_pullover.jpg" },
+  { id: 131, nome: "Leg Press 45°", codigo: "PR70", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_leg_press_45.jpg" },
+  { id: 132, nome: "Cadeira Extensora", codigo: "PR71", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_cadeira_extensora.jpg" },
+  { id: 133, nome: "Flexora em Pé", codigo: "PR72", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_flexora_em_pe.jpg" },
+  { id: 134, nome: "Abdutora", codigo: "PR73", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_abdutora.jpg" },
+  { id: 135, nome: "Leg Press 90°", codigo: "PR74", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_leg_press_90.jpg" },
+  { id: 136, nome: "Leg Press Unilateral", codigo: "PR75", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_leg_press_unilateral.jpg" },
+  { id: 137, nome: "Agachamento Sumo", codigo: "PR76", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_agachamento_sumo.jpg" },
+  { id: 138, nome: "Panturrilha Sentada", codigo: "PR77", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_panturrilha_sentada.jpg" },
+  { id: 139, nome: "Glúteo", codigo: "PR78", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_gluteo.jpg" },
+  { id: 140, nome: "Panturrilha em Pé", codigo: "PR79", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_panturrilha_em_pe.jpg" },
+  { id: 141, nome: "Levantamento Terra Olímpico", codigo: "PR91", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_levantamento_terra_olimpico.jpg" },
+  { id: 142, nome: "Agachamento Sissy", codigo: "PR92", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_agachamento_sissy.jpg" },
+  { id: 143, nome: "Elevação Pélvica em Pé", codigo: "PR93", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_elevacao_pelvica_em_pe.jpg" },
+  { id: 144, nome: "Gaiola Agachamento", codigo: "TTFW74", categoria: "Plate Load", foto: "assets/images/produtos/pro/pl_gaiola_agachamento.jpg" },
 
   // ── PRO · TITANIUM ───────────────────────────────────
   { id: 145, nome: "Supino Inclinado", codigo: "TTS12", categoria: "Titanium", foto: "assets/images/produtos/pro/tit_supino_inclinado.jpg" },
@@ -198,40 +226,40 @@ const produtos = [
   { id: 169, nome: "Cross Over", codigo: "TTMS20", categoria: "Titanium", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttms20_-_cross_over_-_linha_station_-_kikos_pro_-_sku_i000234_1.jpg" },
 
   // ── PRO · STATION ────────────────────────────────────
-  { id: 170, nome: "Banco Reto com Suporte", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_reto_com_suporte.jpg" },
-  { id: 171, nome: "Banco Inclinado", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_inclinado.jpg" },
-  { id: 172, nome: "Banco Declinado com Suporte", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_declinado.jpg" },
-  { id: 173, nome: "Banco Desenvolvimento", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_desenvolvimento.jpg" },
-  { id: 174, nome: "Banco Bíceps", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_biceps.jpg" },
-  { id: 175, nome: "Banco Lombar", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_lombar.jpg" },
-  { id: 176, nome: "Abdominal Vertical", categoria: "Station", foto: "assets/images/produtos/pro/st_abdominal_vertical.jpg" },
-  { id: 177, nome: "Agachamento Livre", categoria: "Station", foto: "assets/images/produtos/pro/st_agachamento_livre.jpg" },
-  { id: 178, nome: "Gaiola Agachamento", categoria: "Station", foto: "assets/images/produtos/pro/st_gaiola_agachamento.jpg" },
+  { id: 170, nome: "Banco Reto com Suporte", codigo: "TTFW13i", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_reto_com_suporte.jpg" },
+  { id: 171, nome: "Banco Inclinado", codigo: "TTFW14i", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_inclinado.jpg" },
+  { id: 172, nome: "Banco Declinado com Suporte", codigo: "TTFW15i", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_declinado.jpg" },
+  { id: 173, nome: "Banco Desenvolvimento", codigo: "TTFW16", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_desenvolvimento.jpg" },
+  { id: 174, nome: "Banco Bíceps", codigo: "TTFW40i", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_biceps.jpg" },
+  { id: 175, nome: "Banco Lombar", codigo: "TTFW52", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_lombar.jpg" },
+  { id: 176, nome: "Abdominal Vertical", codigo: "TTFW60", categoria: "Station", foto: "assets/images/produtos/pro/st_abdominal_vertical.jpg" },
+  { id: 177, nome: "Agachamento Livre", codigo: "TTFW72", categoria: "Station", foto: "assets/images/produtos/pro/st_agachamento_livre.jpg" },
+  { id: 178, nome: "Gaiola Agachamento", codigo: "TTFW73", categoria: "Station", foto: "assets/images/produtos/pro/st_gaiola_agachamento.jpg" },
   { id: 179, nome: "Gaiola Agachamento Completa", categoria: "Station", foto: "assets/images/produtos/pro/st_gaiola_agachamento_completa.jpg" },
-  { id: 180, nome: "Banco 0-90°", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_0_90.jpg" },
-  { id: 181, nome: "Banco Reto", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_reto.jpg" },
-  { id: 182, nome: "Banco Declinado", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_declinado2.jpg" },
-  { id: 183, nome: "Banco 90°", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_90.jpg" },
-  { id: 184, nome: "Suporte Anilha", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_anilha.jpg" },
-  { id: 185, nome: "Suporte Barra", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_barra.jpg" },
-  { id: 186, nome: "Cross Angular", categoria: "Station", foto: "assets/images/produtos/pro/st_cross_angular.jpg" },
-  { id: 187, nome: "Voador em Pé", categoria: "Station", foto: "assets/images/produtos/pro/st_voador_em_pe.jpg" },
-  { id: 188, nome: "Crucifixo Anilhado", categoria: "Station", foto: "assets/images/produtos/pro/st_crucifixo_anilhado.jpg" },
-  { id: 189, nome: "Remada Cavalinho", categoria: "Station", foto: "assets/images/produtos/pro/st_remada_cavalinho.jpg" },
-  { id: 190, nome: "Puxador Convergente", categoria: "Station", foto: "assets/images/produtos/pro/st_puxador_convergente.jpg" },
-  { id: 191, nome: "Banco Romano Turbo", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_romano_turbo.jpg" },
-  { id: 192, nome: "Smith", categoria: "Station", foto: "assets/images/produtos/pro/st_smith.jpg" },
-  { id: 193, nome: "Leg Press 45°", categoria: "Station", foto: "assets/images/produtos/pro/st_leg_press_45.jpg" },
-  { id: 194, nome: "Leg Press 45° Duplo", categoria: "Station", foto: "assets/images/produtos/pro/st_leg_press_45_duplo.jpg" },
-  { id: 195, nome: "Leg Press 45° com Apoio de Cabeça", categoria: "Station", foto: "assets/images/produtos/pro/st_leg_press_45_compacto.jpg" },
-  { id: 196, nome: "Panturrilha", categoria: "Station", foto: "assets/images/produtos/pro/st_panturrilha.jpg" },
-  { id: 197, nome: "Hack Agachamento", categoria: "Station", foto: "assets/images/produtos/pro/st_hack_agachamento.jpg" },
-  { id: 198, nome: "Hack 45°", categoria: "Station", foto: "assets/images/produtos/pro/st_hack_45.jpg" },
-  { id: 199, nome: "Agachamento Pêndulo", categoria: "Station", foto: "assets/images/produtos/pro/st_agachamento_pendulo.jpg" },
-  { id: 200, nome: "Elevação Pélvica 3D", categoria: "Station", foto: "assets/images/produtos/pro/st_elevacao_pelvica_3d.jpg" },
-  { id: 201, nome: "Super Glúteo Anilhado", categoria: "Station", foto: "assets/images/produtos/pro/st_super_gluteo_anilhado.jpg" },
-  { id: 202, nome: "Hiperextensão Revertido", categoria: "Station", foto: "assets/images/produtos/pro/st_hiperextensao_revertido.jpg" },
-  { id: 203, nome: "Glúteo Máximo", categoria: "Station", foto: "assets/images/produtos/pro/st_gluteo_maximo.jpg" },
+  { id: 180, nome: "Banco 0-90°", codigo: "TTFW80i", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_0_90.jpg" },
+  { id: 181, nome: "Banco Reto", codigo: "TTFW81i", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_reto.jpg" },
+  { id: 182, nome: "Banco Declinado", codigo: "TTFW83", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_declinado2.jpg" },
+  { id: 183, nome: "Banco 90°", codigo: "TTFW84", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_90.jpg" },
+  { id: 184, nome: "Suporte Anilha", codigo: "TTFW94", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_anilha.jpg" },
+  { id: 185, nome: "Suporte Barra", codigo: "TTFW96", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_barra.jpg" },
+  { id: 186, nome: "Cross Angular", codigo: "TTMS21", categoria: "Station", foto: "assets/images/produtos/pro/st_cross_angular.jpg" },
+  { id: 187, nome: "Voador em Pé", codigo: "TTMS25", categoria: "Station", foto: "assets/images/produtos/pro/st_voador_em_pe.jpg" },
+  { id: 188, nome: "Crucifixo Anilhado", codigo: "TTPL22", categoria: "Station", foto: "assets/images/produtos/pro/st_crucifixo_anilhado.jpg" },
+  { id: 189, nome: "Remada Cavalinho", codigo: "TTPL31", categoria: "Station", foto: "assets/images/produtos/pro/st_remada_cavalinho.jpg" },
+  { id: 190, nome: "Puxador Convergente", codigo: "TTPL33", categoria: "Station", foto: "assets/images/produtos/pro/st_puxador_convergente.jpg" },
+  { id: 191, nome: "Banco Romano Turbo", codigo: "TTPL52", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_romano_turbo.jpg" },
+  { id: 192, nome: "Smith", codigo: "TTPL62", categoria: "Station", foto: "assets/images/produtos/pro/st_smith.jpg" },
+  { id: 193, nome: "Leg Press 45°", codigo: "TTPL70", categoria: "Station", foto: "assets/images/produtos/pro/st_leg_press_45.jpg" },
+  { id: 194, nome: "Leg Press 45° Duplo", codigo: "TTPL71", categoria: "Station", foto: "assets/images/produtos/pro/st_leg_press_45_duplo.jpg" },
+  { id: 195, nome: "Leg Press 45° com Apoio de Cabeça", codigo: "TTPL72", categoria: "Station", foto: "assets/images/produtos/pro/st_leg_press_45_compacto.jpg" },
+  { id: 196, nome: "Panturrilha", codigo: "TTPL77", categoria: "Station", foto: "assets/images/produtos/pro/st_panturrilha.jpg" },
+  { id: 197, nome: "Hack Agachamento", codigo: "TTPL78", categoria: "Station", foto: "assets/images/produtos/pro/st_hack_agachamento.jpg" },
+  { id: 198, nome: "Hack 45°", codigo: "TTPL79", categoria: "Station", foto: "assets/images/produtos/pro/st_hack_45.jpg" },
+  { id: 199, nome: "Agachamento Pêndulo", codigo: "TTPL80", categoria: "Station", foto: "assets/images/produtos/pro/st_agachamento_pendulo.jpg" },
+  { id: 200, nome: "Elevação Pélvica 3D", codigo: "TTPL90", categoria: "Station", foto: "assets/images/produtos/pro/st_elevacao_pelvica_3d.jpg" },
+  { id: 201, nome: "Super Glúteo Anilhado", codigo: "TTPL91", categoria: "Station", foto: "assets/images/produtos/pro/st_super_gluteo_anilhado.jpg" },
+  { id: 202, nome: "Hiperextensão Revertido", codigo: "TTPL93", categoria: "Station", foto: "assets/images/produtos/pro/st_hiperextensao_revertido.jpg" },
+  { id: 203, nome: "Glúteo Máximo", codigo: "TTPL94", categoria: "Station", foto: "assets/images/produtos/pro/st_gluteo_maximo.jpg" },
 
   // ── PRO · ACESSÓRIOS ─────────────────────────────────
   { id: 204, nome: "Kettlebell Rubber", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_kettlebell_rubber.jpg" },
@@ -269,7 +297,8 @@ const produtos = [
   { id: 234, nome: "Puxador Pulley com Remada", codigo: "TTDS3031", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_i001958_-_ttds3031_-_pulley_com_remada_-_linha_dual_-_kikos_pro_1.jpg" },
   { id: 235, nome: "Bíceps e Tríceps Press", codigo: "TTDS4042", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttds4042_-_biceps_e_triceps_-_linha_dual_-_kikos_pro_-_sku_i001960_1.jpg" },
   { id: 236, nome: "Mult Press", codigo: "TTDS13", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttds13_-_mult_press_-_linha_dual_-_sku_i001957_1.jpg" },
-  { id: 237, nome: "Cadeira Adutora e Abdutora", codigo: "TTDS7475", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttds7475_-_cadeira_adutora_e_abdutora_-_linha_dual_-_kikos_pro_-_sku_i001961.jpg" },
+  { id: 237, nome: "Cadeira Adutora e Abdutora", codigo: "TTDS7475", categoria: "Dual", foto: "assets/images/produtos/pro/dual_cadeira_adutora_abdutora_ttds7475.jpg" },
   { id: 238, nome: "Cross com Smith", codigo: "TTMS22", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttms22_-_cross_com_smith_-_linha_dual_001_2.jpg" },
+  { id: 239, nome: "Cadeira Adutora e Abdutora", codigo: "T7475", categoria: "Titanium", foto: "assets/images/produtos/pro/tit_cadeira_adutora_abdutora_t7475.jpg" },
 
 ];
