@@ -24,11 +24,19 @@
 //   PM 2043 Tríceps (I027779) · PM 2046 Abdominal (I027782) · PM 2048 Cadeira
 //   Extensora (I027784)
 //
-//   DUAL: falta 1 item — "Cadeira Flexora e Extensora" (TTDS7172i / TTDS7172)
+//   ACESSÓRIOS: falta 1 item — "Barra Reta 1.20m Cromada com Presilha
+//   Olímpica" (OB47S) — aguardando foto (id 302 já cadastrado, sem foto).
 //
-//   TITANIUM: "Scott Máquina" (categoria Titanium) sem código confirmado —
-//   não encontrado no site nem na planilha, pode não existir como produto
-//   separado. Verificar antes de publicar.
+//   PENDENTE DE DECISÃO (não incluído nesta consolidação — falta confirmar
+//   com Victor antes de aplicar):
+//   - "Halter Sextavado Rubber Kikos Pro" (foto recebida em
+//     fotos_site_halter_sextavado_rubber_kikos_pro_sem_peso_001_1.jpg):
+//     ainda não confirmado se é o mesmo item do id 213 (MD2102) ou um
+//     produto novo e separado. NÃO adicionado até essa definição.
+//   - Campo "vendido em pares/kit" (halteres, dumbbells, suporte com
+//     halteres já incluídos): produtos.js ainda não tem estrutura para
+//     isso. Precisa ver js/catalogo.js (ou equivalente) antes de decidir
+//     o formato (campo `observacao` vs. embutir no `nome`).
 //
 const produtos = [
 
@@ -241,7 +249,7 @@ const produtos = [
   { id: 182, nome: "Banco Declinado", codigo: "TTFW83", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_declinado2.jpg" },
   { id: 183, nome: "Banco 90°", codigo: "TTFW84", categoria: "Station", foto: "assets/images/produtos/pro/st_banco_90.jpg" },
   { id: 184, nome: "Suporte Anilha", codigo: "TTFW94", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_anilha.jpg" },
-  { id: 185, nome: "Suporte Barra", codigo: "TTFW96", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_barra.jpg" },
+  { id: 185, nome: "Suporte Barra", codigo: "TTFW96 / I000264", categoria: "Station", foto: "assets/images/produtos/pro/st_suporte_barra.jpg" },
   { id: 186, nome: "Cross Angular", codigo: "TTMS21", categoria: "Station", foto: "assets/images/produtos/pro/st_cross_angular.jpg" },
   { id: 187, nome: "Voador em Pé", codigo: "TTMS25", categoria: "Station", foto: "assets/images/produtos/pro/st_voador_em_pe.jpg" },
   { id: 188, nome: "Crucifixo Anilhado", codigo: "TTPL22", categoria: "Station", foto: "assets/images/produtos/pro/st_crucifixo_anilhado.jpg" },
@@ -287,8 +295,7 @@ const produtos = [
   { id: 238, nome: "Cross com Smith", codigo: "TTMS22", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttms22_-_cross_com_smith_-_linha_dual_001_2.jpg" },
   { id: 239, nome: "Cadeira Adutora e Abdutora", codigo: "T7475", categoria: "Titanium", foto: "assets/images/produtos/pro/tit_cadeira_adutora_abdutora_t7475.jpg" },
 
-
-    // ── MONSTER GOAT (linha nova — sem foto ainda, produto não publicado no site) ──
+  // ── MONSTER GOAT (linha nova — sem foto ainda, produto não publicado no site) ──
   { id: 240, nome: "Peck Deck", codigo: "MG12", categoria: "Monster Goat", foto: "" },
   { id: 241, nome: "Supino Reto", codigo: "MG13", categoria: "Monster Goat", foto: "" },
   { id: 242, nome: "Crossover", codigo: "MG20", categoria: "Monster Goat", foto: "" },
@@ -329,15 +336,10 @@ const produtos = [
   { id: 275, nome: "Cadeira Extensora", codigo: "PM 2048", categoria: "Hammer Force PM", foto: "" },
 
   // ── DUAL: item que faltava ──
-    { id: 276, nome: "Cadeira Flexora e Extensora", codigo: "TTDS7172i", categoria: "Dual", foto: "assets/images/produtos/pro/dual_cadeira_flexora_extensora_ttds7172i.jpg" },
-
-  // ── TITANIUM: 4 produtos novos sinalizados (sem foto — não publicados no site nem em revendedores) ──
+  { id: 276, nome: "Cadeira Flexora e Extensora", codigo: "TTDS7172i", categoria: "Dual", foto: "assets/images/produtos/pro/dual_cadeira_flexora_extensora_ttds7172i.jpg" },
 
   // ── ESTEIRAS: produto novo com foto enviada pelo Victor ──
   { id: 281, nome: "Esteira T-KX8500C com Tela", codigo: "T-KX8500C", categoria: "Esteiras", foto: "assets/images/produtos/pro/esteira_t_kx8500c.jpg" },
-
-  // ── 4 itens "NOVO" que passaram batido na primeira varredura — sem foto ──
-  //   { id: 283, nome: "Bike Spinning F12iX", codigo: "F12iX", categoria: "Bikes", foto: "" },
 
   // ── 7 itens residenciais/complementares confirmados na planilha ──
   { id: 285, nome: "Bike Spinning Bolt F1", codigo: "F1", categoria: "Bikes", foto: "" },
@@ -348,7 +350,7 @@ const produtos = [
   { id: 290, nome: "Bike Spinning F9", codigo: "F9", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/s/p/spinning_f9_0003_dsc_3996_1.jpg" },
   { id: 291, nome: "Elíptico KE4.4", codigo: "KE4.4", categoria: "Elípticos", foto: "assets/images/produtos/pro/ke4_4.jpg" },
 
-   // ── BARRAS (com código e SKU confirmados na planilha) ──
+  // ── BARRAS (com código e SKU confirmados na planilha) ──
   { id: 292, nome: "Protetor Acolchoado Para Barra", codigo: "AB7029", categoria: "Acessórios", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/i/m/image_898_1.jpg" },
   { id: 293, nome: "Barra de Porta", codigo: "AB3421", categoria: "Acessórios", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/i/m/image_1434_1_1322_1.jpg" },
   { id: 294, nome: "Barra de Porta Completa", codigo: "I000297", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_de_porta_completa.jpg" },
@@ -359,30 +361,33 @@ const produtos = [
   { id: 299, nome: "Barra H Cromada com Presilha", codigo: "IR94009", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_h_120m.jpg" },
   { id: 300, nome: "Barra Reta 2.20m Cromada com Presilha", codigo: "IR94001", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_reta_220m.jpg" },
   { id: 301, nome: "Barra Reta 0.50m Cromada", codigo: "I000407", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_reta_40cm_50cm.jpg" },
+
+  // ── BARRAS OLÍMPICAS ──
   { id: 302, nome: "Barra Reta 1.20m Cromada com Presilha Olímpica", codigo: "OB47S", categoria: "Acessórios", foto: "" },
-  { id: 303, nome: "Barra W 1.20m Cromada com Presilha Olímpica", codigo: "OB47", categoria: "Acessórios", foto: "" },
-  { id: 304, nome: "Barra Reta 1.52m Cromada com Presilha Olímpica", codigo: "OB60", categoria: "Acessórios", foto: "" },
-  { id: 305, nome: "Barra H Cromada com Presilha Olímpica", codigo: "OB34", categoria: "Acessórios", foto: "" },
-  { id: 306, nome: "Barra Reta 2.20m Cromada com Presilha Olímpica", codigo: "OB86", categoria: "Acessórios", foto: "" },
-  { id: 307, nome: "Suporte para Barras Olímpicas", codigo: "i001716", categoria: "Acessórios", foto: "" },
-  { id: 308, nome: "Barra Hexagonal (Trap Bar)", codigo: "MD4111", categoria: "Acessórios", foto: "" },
+  { id: 303, nome: "Barra W 1.20m Cromada com Presilha Olímpica", codigo: "OB47", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_w_120m_olimpica.jpg" },
+  { id: 304, nome: "Barra Reta 1.52m Cromada com Presilha Olímpica", codigo: "OB60", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_reta_152m_olimpica.jpg" },
+  { id: 305, nome: "Barra H Cromada com Presilha Olímpica", codigo: "OB34", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_h_olimpica.jpg" },
+  { id: 306, nome: "Barra Reta 2.20m Cromada com Presilha Olímpica", codigo: "OB86", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_reta_220m_olimpica.jpg" },
+  { id: 307, nome: "Suporte para Barras Olímpicas", codigo: "i001716", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_suporte_barras_olimpicas.jpg" },
+  { id: 308, nome: "Barra Hexagonal (Trap Bar)", codigo: "MD4111", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_hexagonal_trap_bar.jpg" },
 
   // ── ANILHAS ──
-  { id: 311, nome: "Anilha Emborrachada", codigo: "2000842", categoria: "Acessórios", foto: "" },
-  { id: 312, nome: "Anilha Rubber Vermelha", codigo: "MD1032", categoria: "Acessórios", foto: "", pesos: [2.5, 5, 10, 15, 20] },
-  { id: 315, nome: "Estante para Anilhas", codigo: "IR96013", categoria: "Acessórios", foto: "" },
+  { id: 311, nome: "Anilha Emborrachada", codigo: "2000842", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_anilha_emborrachada.jpg" },
+  { id: 312, nome: "Anilha Rubber Vermelha", codigo: "MD1032", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_anilha_rubber_vermelha.jpg", pesos: [2.5, 5, 10, 15, 20] },
+  { id: 315, nome: "Estante para Anilhas", codigo: "IR96013", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_estante_anilhas.jpg" },
 
   // ── COLCHONETES ──
-  { id: 316, nome: "Colchonete Emborrachado Pequeno", codigo: "I000884", categoria: "Acessórios", foto: "" },
-  { id: 317, nome: "Colchonete Emborrachado Grande", codigo: "I000883", categoria: "Acessórios", foto: "" },
-  { id: 318, nome: "Colchonete Dobrável", codigo: "MD9013A", categoria: "Acessórios", foto: "" },
+  { id: 316, nome: "Colchonete Emborrachado Pequeno", codigo: "I000884", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_colchonete_pequeno.jpg" },
+  { id: 317, nome: "Colchonete Emborrachado Grande", codigo: "I000883", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_colchonete_grande.jpg" },
 
   // ── BARRAS MONTADAS (peso fixo/soldado nas pontas, com seletor de peso) ──
   { id: 319, nome: "Barra Montada Reta Rubber", codigo: "244461", categoria: "Acessórios", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/0/5/05c5b9a6-be29-4796-9d17-f78133fadc3c_1_1.jpg", pesos: [10, 15, 20, 25, 30, 35, 40, 45, 50] },
   { id: 320, nome: "Barra Montada W Rubber", codigo: "233351", categoria: "Acessórios", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/6/f/6fc66f47-bde6-47f1-9af2-ec92f866b993.jpg", pesos: [10, 15, 20, 25, 30, 35, 40, 45, 50] },
 
-  { id: 321, nome: "Rack de Dumbbell 5 Pares", codigo: "MD6208", categoria: "Acessórios", foto: "" },
-  { id: 322, nome: "Step Aeróbico (modelo 2)", codigo: "MD1719", categoria: "Acessórios", foto: "" },
+  { id: 323, nome: "Bike Spinning Kikos S1200 Roda de Inércia 13Kg", codigo: "I027328", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_spinning_s1200.jpg" },
 
-    { id: 323, nome: "Bike Spinning Kikos S1200 Roda de Inércia 13Kg", codigo: "I027328", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_spinning_s1200.jpg" },
+  // ── NOVOS (linha Kikos Pro / Showroom, confirmados nesta consolidação) ──
+  { id: 324, nome: "Dumbbell Rubber Vermelho Kikos Pro", codigo: "256820", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_rubber_vermelho_kikos_pro.jpg", pesos: [12, 14, 18] },
+  { id: 325, nome: "Barra Montada Reta Pu Lightning Bolt Showroom", codigo: "250028S", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_montada_reta_pu_lightning_bolt.jpg", pesos: [40, 60] },
+
 ];
