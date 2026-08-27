@@ -75,10 +75,10 @@ function adicionarAoCarrinho(id) {
 function mostrarModalQuantidade(produto) {
   const temPesos = Array.isArray(produto.pesos) && produto.pesos.length > 0;
   const seletorPeso = temPesos ? `
-      <div class="campo-contato">
-        <label for="select-peso">Peso</label>
+      <div class="campo-peso-destaque">
+        <label for="select-peso">Escolha o peso</label>
         <select id="select-peso">
-          ${produto.pesos.map(p => `<option value="${p}">${p}kg</option>`).join("")}
+          ${produto.pesos.map(p => `<option value="${p}">${p} kg</option>`).join("")}
         </select>
       </div>
   ` : "";
