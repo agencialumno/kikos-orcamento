@@ -390,4 +390,6 @@ const produtos = [
   { id: 324, nome: "Dumbbell Rubber Vermelho Kikos Pro", codigo: "256820", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_rubber_vermelho_kikos_pro.jpg", pesos: [12, 14, 18] },
   { id: 325, nome: "Barra Montada Reta Pu Lightning Bolt Showroom", codigo: "250028S", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_montada_reta_pu_lightning_bolt.jpg", pesos: [40, 60] },
 
+    { id: 326, nome: "Bike Horizontal KR9.6iX", codigo: "I001331", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_kr9_6ix.jpg" },
+  { id: 327, nome: "Bike Vertical KV9.5iX", codigo: "I001332", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_kv9_5ix.jpg" },
 ];
