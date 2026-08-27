@@ -301,4 +301,71 @@ const produtos = [
   { id: 238, nome: "Cross com Smith", codigo: "TTMS22", categoria: "Dual", foto: "https://www.kikos.com.br/media/catalog/product/cache/25521d4458ddce7b0e29b7c6f134a0e2/f/o/fotos_site_ttms22_-_cross_com_smith_-_linha_dual_001_2.jpg" },
   { id: 239, nome: "Cadeira Adutora e Abdutora", codigo: "T7475", categoria: "Titanium", foto: "assets/images/produtos/pro/tit_cadeira_adutora_abdutora_t7475.jpg" },
 
+
+    // ── MONSTER GOAT (linha nova — sem foto ainda, produto não publicado no site) ──
+  { id: 240, nome: "Peck Deck", codigo: "MG12", categoria: "Monster Goat", foto: "" },
+  { id: 241, nome: "Supino Reto", codigo: "MG13", categoria: "Monster Goat", foto: "" },
+  { id: 242, nome: "Crossover", codigo: "MG20", categoria: "Monster Goat", foto: "" },
+  { id: 243, nome: "Deltoide", codigo: "MG21", categoria: "Monster Goat", foto: "" },
+  { id: 244, nome: "Peitoral Dorsal", codigo: "MG22", categoria: "Monster Goat", foto: "" },
+  { id: 245, nome: "Desenvolvimento de Ombros", codigo: "MG23", categoria: "Monster Goat", foto: "" },
+  { id: 246, nome: "Pull Down", codigo: "MG30", categoria: "Monster Goat", foto: "" },
+  { id: 247, nome: "Remada Baixa", codigo: "MG31", categoria: "Monster Goat", foto: "" },
+  { id: 248, nome: "Puxada Alta", codigo: "MG33", categoria: "Monster Goat", foto: "" },
+  { id: 249, nome: "Remada", codigo: "MG34", categoria: "Monster Goat", foto: "" },
+  { id: 250, nome: "Bíceps", codigo: "MG40", categoria: "Monster Goat", foto: "" },
+  { id: 251, nome: "Tríceps", codigo: "MG42", categoria: "Monster Goat", foto: "" },
+  { id: 252, nome: "Abdominal", codigo: "MG51", categoria: "Monster Goat", foto: "" },
+  { id: 253, nome: "Lombar", codigo: "MG52", categoria: "Monster Goat", foto: "" },
+  { id: 254, nome: "Total Hip", codigo: "MG53", categoria: "Monster Goat", foto: "" },
+  { id: 255, nome: "Gráviton", codigo: "MG60", categoria: "Monster Goat", foto: "" },
+  { id: 256, nome: "Leg Horizontal", codigo: "MG70", categoria: "Monster Goat", foto: "" },
+  { id: 257, nome: "Cadeira Extensora", codigo: "MG71", categoria: "Monster Goat", foto: "" },
+  { id: 258, nome: "Cadeira Flexora", codigo: "MG72", categoria: "Monster Goat", foto: "" },
+  { id: 259, nome: "Mesa Flexora", codigo: "MG73", categoria: "Monster Goat", foto: "" },
+  { id: 260, nome: "Cadeira Abdutora", codigo: "MG74", categoria: "Monster Goat", foto: "" },
+  { id: 261, nome: "Cadeira Adutora", codigo: "MG75", categoria: "Monster Goat", foto: "" },
+  { id: 262, nome: "Panturrilha em Pé", codigo: "MG77", categoria: "Monster Goat", foto: "" },
+  { id: 263, nome: "Glúteo", codigo: "MG78", categoria: "Monster Goat", foto: "" },
+
+  // ── HAMMER FORCE PM (linha nova — sem foto ainda, produto não publicado no site) ──
+  { id: 264, nome: "Bíceps", codigo: "PM 2037", categoria: "Hammer Force PM", foto: "" },
+  { id: 265, nome: "Supino Reto", codigo: "PM 2038", categoria: "Hammer Force PM", foto: "" },
+  { id: 266, nome: "Remada", codigo: "PM 2039", categoria: "Hammer Force PM", foto: "" },
+  { id: 267, nome: "Supino Inclinado", codigo: "PM 2040", categoria: "Hammer Force PM", foto: "" },
+  { id: 268, nome: "Desenvolvimento de Ombro", codigo: "PM 2041", categoria: "Hammer Force PM", foto: "" },
+  { id: 269, nome: "Supino Declinado", codigo: "PM 2042", categoria: "Hammer Force PM", foto: "" },
+  { id: 270, nome: "Tríceps", codigo: "PM 2043", categoria: "Hammer Force PM", foto: "" },
+  { id: 271, nome: "Puxada Frontal Invertida", codigo: "PM 2044", categoria: "Hammer Force PM", foto: "" },
+  { id: 272, nome: "Puxada Alta", codigo: "PM 2045", categoria: "Hammer Force PM", foto: "" },
+  { id: 273, nome: "Abdominal", codigo: "PM 2046", categoria: "Hammer Force PM", foto: "" },
+  { id: 274, nome: "Flexora em Pé Unilateral", codigo: "PM 2047", categoria: "Hammer Force PM", foto: "" },
+  { id: 275, nome: "Cadeira Extensora", codigo: "PM 2048", categoria: "Hammer Force PM", foto: "" },
+
+  // ── DUAL: item que faltava ──
+  { id: 276, nome: "Cadeira Flexora e Extensora", codigo: "TTDS7172i", categoria: "Dual", foto: "" },
+
+  // ── TITANIUM: 4 produtos novos sinalizados (sem foto — não publicados no site nem em revendedores) ──
+  { id: 277, nome: "Mult Press", codigo: "TTDS14", categoria: "Titanium", foto: "" },
+  { id: 278, nome: "Pulley com Remada", codigo: "TTDS3032", categoria: "Titanium", foto: "" },
+  { id: 279, nome: "Bíceps e Tríceps Press", codigo: "TTDS4043", categoria: "Titanium", foto: "" },
+  { id: 280, nome: "Cadeira Flexora e Extensora", codigo: "TTDS7173", categoria: "Titanium", foto: "" },
+
+  // ── ESTEIRAS: produto novo com foto enviada pelo Victor ──
+  { id: 281, nome: "Esteira T-KX8500C com Tela", codigo: "T-KX8500C", categoria: "Esteiras", foto: "assets/images/produtos/pro/esteira_t_kx8500c.jpg" },
+
+  // ── 4 itens "NOVO" que passaram batido na primeira varredura — sem foto ──
+  { id: 282, nome: "Escada KE18.0", codigo: "KE18.0", categoria: "Escada e Remo", foto: "" },
+  { id: 283, nome: "Bike Spinning F12iX", codigo: "F12iX", categoria: "Bikes", foto: "" },
+  { id: 284, nome: "Esteira UltraRun 140", codigo: "UR140", categoria: "Esteiras", foto: "" },
+  // ── 7 itens residenciais/complementares confirmados na planilha ──
+  { id: 285, nome: "Bike Spinning Bolt F1", codigo: "F1", categoria: "Bikes", foto: "" },
+  { id: 286, nome: "Bike Spinning F2i", codigo: "F2i", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/n/o/novas_fotos_-_site_001_spinning_f2i_3.jpg" },
+  { id: 287, nome: "Bike Spinning F3i", codigo: "F3i", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/n/o/novas_fotos_-_site_001_spinning_f3i_3.jpg" },
+  { id: 288, nome: "Bike Spinning F5i", codigo: "F5i", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/n/o/novas_fotos_-_site_001_spinning_f5i_3_2.jpg" },
+  { id: 289, nome: "Bike Spinning F7i", codigo: "F7i", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/n/o/novas_fotos_-_site_001_spinning_f7i_3.jpg" },
+  { id: 290, nome: "Bike Spinning F9", codigo: "F9", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/s/p/spinning_f9_0003_dsc_3996_1.jpg" },
+  { id: 291, nome: "Elíptico KE4.4", codigo: "KE4.4", categoria: "Elípticos", foto: "" },
+
+
 ];

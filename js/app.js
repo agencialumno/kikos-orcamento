@@ -11,10 +11,29 @@ function getProdutos(categoria) {
   return produtos.filter(p => p.categoria === categoria);
 }
 
+const BANNERS_NOVIDADE = {
+  "Monster Goat": "assets/images/banners/monster-goat.png",
+  "Hammer Force PM": "assets/images/banners/hammer-force-pm.png",
+};
+
 function renderizarProdutos(categoria) {
   const grid = document.getElementById("grid-produtos");
   const titulo = document.getElementById("titulo-categoria");
   titulo.textContent = categoria;
+
+  const bannerExistente = document.getElementById("banner-novidade");
+  if (bannerExistente) bannerExistente.remove();
+
+  const bannerSrc = BANNERS_NOVIDADE[categoria];
+  if (bannerSrc) {
+    const banner = document.createElement("img");
+    banner.id = "banner-novidade";
+    banner.className = "banner-novidade";
+    banner.src = bannerSrc;
+    banner.alt = `Novidade: ${categoria}`;
+    banner.onerror = function() { this.style.display = "none"; };
+    titulo.insertAdjacentElement("afterend", banner);
+  }
 
   const lista = getProdutos(categoria);
   const totalPaginas = Math.ceil(lista.length / PRODUTOS_POR_PAGINA);

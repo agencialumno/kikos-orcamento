@@ -699,3 +699,11 @@ body {
     font-size: 22px;
   }
 }
+
+
+.banner-novidade {
+  width: 100%;
+  border-radius: 12px;
+  margin: 16px 0 24px 0;
+  display: block;
+}
