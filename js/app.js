@@ -73,12 +73,23 @@ function adicionarAoCarrinho(id) {
 }
 
 function mostrarModalQuantidade(produto) {
+  const temPesos = Array.isArray(produto.pesos) && produto.pesos.length > 0;
+  const seletorPeso = temPesos ? `
+      <div class="campo-contato">
+        <label for="select-peso">Peso</label>
+        <select id="select-peso">
+          ${produto.pesos.map(p => `<option value="${p}">${p}kg</option>`).join("")}
+        </select>
+      </div>
+  ` : "";
+
   const overlay = document.createElement("div");
   overlay.className = "overlay-quantidade";
   overlay.innerHTML = `
     <div class="modal-quantidade">
       <img src="${produto.foto}" alt="${produto.nome}" onerror="this.style.display='none'">
       <h3>${produto.nome}${produto.codigo ? ` <span class="produto-codigo">${produto.codigo}</span>` : ""}</h3>
+      ${seletorPeso}
       <div class="modal-quantidade-controle">
         <button onclick="alterarQuantidade(-1)">−</button>
         <input type="number" id="input-quantidade" value="1" min="1" max="99">
@@ -104,17 +115,23 @@ function alterarQuantidade(delta) {
 function confirmarAdicao(id) {
   const produto = produtos.find(p => p.id === id);
   const quantidade = parseInt(document.getElementById("input-quantidade").value) || 1;
-  const existente = carrinho.find(i => i.id === id);
+  const seletorPeso = document.getElementById("select-peso");
+  const pesoEscolhido = seletorPeso ? parseInt(seletorPeso.value) : null;
+
+  // Com peso, cada peso escolhido vira um item separado no carrinho
+  // (senão "2x Barra 10kg" e "1x Barra 20kg" ficariam misturados num só item)
+  const existente = carrinho.find(i => i.id === id && i.pesoEscolhido === pesoEscolhido);
 
   if (existente) {
     existente.quantidade += quantidade;
   } else {
-    carrinho.push({ ...produto, quantidade });
+    carrinho.push({ ...produto, quantidade, pesoEscolhido });
   }
 
   document.querySelector(".overlay-quantidade").remove();
   renderizarCarrinho();
-  mostrarToast(`${quantidade}x ${produto.nome} adicionado!`);
+  const textoToast = pesoEscolhido ? `${quantidade}x ${produto.nome} (${pesoEscolhido}kg) adicionado!` : `${quantidade}x ${produto.nome} adicionado!`;
+  mostrarToast(textoToast);
 }
 
 function mostrarToast(mensagem) {
@@ -151,7 +168,7 @@ function renderizarCarrinho() {
     <div class="carrinho-item">
       <img src="${i.foto}" alt="${i.nome}">
       <div class="carrinho-item-info">
-        <p>${i.nome}${i.codigo ? ` <span class="produto-codigo">${i.codigo}</span>` : ""}</p>
+        <p>${i.nome}${i.codigo ? ` <span class="produto-codigo">${i.codigo}</span>` : ""}${i.pesoEscolhido ? ` — ${i.pesoEscolhido}kg` : ""}</p>
         <span>Quantidade: ${i.quantidade}</span>
       </div>
       <button class="btn-remover" onclick="removerDoCarrinho(${i.id})">×</button>
@@ -469,7 +486,7 @@ async function enviarPedido(tipoDocumento) {
   btnConfirmar.disabled = true;
   btnConfirmar.textContent = "Enviando...";
 
-  const itens = carrinho.map(i => ({ nome: i.nome, codigo: i.codigo || null, quantidade: i.quantidade, categoria: i.categoria }));
+  const itens = carrinho.map(i => ({ nome: i.nome, codigo: i.codigo || null, quantidade: i.quantidade, categoria: i.categoria, pesoEscolhido: i.pesoEscolhido || null }));
 
   // Verifica se esse telefone já pediu antes (cliente recorrente)
   let clienteRecorrente = false;
@@ -562,7 +579,7 @@ function montarLinkWhatsApp(nome, linhaIdentificacao, itens) {
 
   const blocos = [];
   for (const [linha, itensDaLinha] of porLinha) {
-    const listaItens = itensDaLinha.map(i => `• ${i.quantidade}x ${i.nome}${i.codigo ? ` (${i.codigo})` : ""}`).join("\n");
+    const listaItens = itensDaLinha.map(i => `• ${i.quantidade}x ${i.nome}${i.pesoEscolhido ? ` ${i.pesoEscolhido}kg` : ""}${i.codigo ? ` (${i.codigo})` : ""}`).join("\n");
     blocos.push(`*Linha ${linha}*\n${listaItens}`);
   }
   const listaCompleta = blocos.join("\n\n");

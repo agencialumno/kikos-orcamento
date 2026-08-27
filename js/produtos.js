@@ -367,5 +367,41 @@ const produtos = [
   { id: 290, nome: "Bike Spinning F9", codigo: "F9", categoria: "Bikes", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/s/p/spinning_f9_0003_dsc_3996_1.jpg" },
   { id: 291, nome: "Elíptico KE4.4", codigo: "KE4.4", categoria: "Elípticos", foto: "" },
 
+  // ── BARRAS (17 itens, categoria Acessórios) ──
+  { id: 292, nome: "Protetor Acolchoado Para Barra", categoria: "Acessórios", foto: "" },
+  { id: 293, nome: "Barra de Porta", categoria: "Acessórios", foto: "" },
+  { id: 294, nome: "Barra de Porta Completa", categoria: "Acessórios", foto: "" },
+  { id: 295, nome: "Barra Reta 40cm Cromada com Presilha", categoria: "Acessórios", foto: "" },
+  { id: 296, nome: "Barra W 1.20m Cromada com Presilha", categoria: "Acessórios", foto: "" },
+  { id: 297, nome: "Barra Reta 1.20m Cromada com Presilha", categoria: "Acessórios", foto: "" },
+  { id: 298, nome: "Barra Reta 1.70m Cromada com Presilha", categoria: "Acessórios", foto: "" },
+  { id: 299, nome: "Barra H Cromada com Presilha", categoria: "Acessórios", foto: "" },
+  { id: 300, nome: "Barra Reta 2.20m Cromada com Presilha", categoria: "Acessórios", foto: "" },
+  { id: 301, nome: "Barra Reta 0.50m Cromada", categoria: "Acessórios", foto: "" },
+  { id: 302, nome: "Barra Reta 1.20m Cromada com Presilha Olímpica", categoria: "Acessórios", foto: "" },
+  { id: 303, nome: "Barra W 1.20m Cromada com Presilha Olímpica", categoria: "Acessórios", foto: "" },
+  { id: 304, nome: "Barra Reta 1.52m Cromada com Presilha Olímpica", categoria: "Acessórios", foto: "" },
+  { id: 305, nome: "Barra H Cromada com Presilha Olímpica", categoria: "Acessórios", foto: "" },
+  { id: 306, nome: "Barra Reta 2.20m Cromada com Presilha Olímpica", categoria: "Acessórios", foto: "" },
+  { id: 307, nome: "Suporte para Barras Olímpicas", categoria: "Acessórios", foto: "" },
+  { id: 308, nome: "Barra Hexagonal (Trap Bar)", categoria: "Acessórios", foto: "" },
+
+  // ── ANILHAS (7 itens, categoria Acessórios) ──
+  { id: 309, nome: "Anilha Emborrachada Olímpica", categoria: "Acessórios", foto: "" },
+  { id: 310, nome: "Anilha Style Cement PS", categoria: "Acessórios", foto: "" },
+  { id: 311, nome: "Anilha Emborrachada", categoria: "Acessórios", foto: "" },
+  { id: 312, nome: "Anilha Rubber", categoria: "Acessórios", foto: "" },
+  { id: 313, nome: "Anilha Rubber Vermelha (pequena)", categoria: "Acessórios", foto: "" },
+  { id: 314, nome: "Anilha Rubber Vermelha (grande)", categoria: "Acessórios", foto: "" },
+  { id: 315, nome: "Estante para Anilhas", categoria: "Acessórios", foto: "" },
+
+  // ── COLCHONETES (3 itens, categoria Acessórios) ──
+  { id: 316, nome: "Colchonete Emborrachado Pequeno", categoria: "Acessórios", foto: "" },
+  { id: 317, nome: "Colchonete Emborrachado Grande", categoria: "Acessórios", foto: "" },
+  { id: 318, nome: "Colchonete Dobrável", categoria: "Acessórios", foto: "" },
+
+  // ── BARRAS MONTADAS (peso fixo/soldado nas pontas, com seletor de peso) ──
+  { id: 319, nome: "Barra Montada Reta Rubber", codigo: "244461", categoria: "Acessórios", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/0/5/05c5b9a6-be29-4796-9d17-f78133fadc3c_1_1.jpg", pesos: [10, 15, 20, 25, 30] },
+  { id: 320, nome: "Barra Montada W Rubber", codigo: "233351", categoria: "Acessórios", foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/6/f/6fc66f47-bde6-47f1-9af2-ec92f866b993.jpg", pesos: [10, 15, 20] },
 
 ];
