@@ -263,11 +263,11 @@ const produtos = [
 
   // ── PRO · ACESSÓRIOS ─────────────────────────────────
   { id: 204, nome: "Kettlebell Rubber", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_kettlebell_rubber.jpg", pesos: [4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40] },
-  { id: 205, nome: "Dumbbell Rubber", codigo: "MD2102", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_rubber.jpg", pesos: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50] },
+  { id: 205, nome: "Dumbbell Rubber", codigo: "MD2102", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_rubber.jpg", pesos: [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50] },
   { id: 209, nome: "Torre de Halter Sextavado Emborrachado", codigo: "i000394", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_torre_halter_sextavado.jpg" },
   { id: 210, nome: "Banco Step Regulável", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_banco_step_regulavel.jpg" },
   { id: 211, nome: "Kit Puxadores Anatômicos com Suporte", codigo: "AB1510", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_kit_puxadores_anatomicos.jpg" },
-  { id: 212, nome: "Dumbbell Emborrachado", codigo: "MD2102", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_emborrachado.jpg", pesos: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30] },
+  { id: 212, nome: "Dumbbell Emborrachado", codigo: "MD2102", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_emborrachado.jpg", pesos: [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30] },
   { id: 213, nome: "Halter Sextavado Rubber", codigo: "MD2102", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_halter_sextavado_rubber.jpg", pesos: [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50] },
   { id: 214, nome: "Step Aeróbico", codigo: "MD1712", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_step_aerobico.jpg" },
   { id: 215, nome: "Suporte para Halter 10 Pares", codigo: "MD6217", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_suporte_halter_10_pares.jpg" },
