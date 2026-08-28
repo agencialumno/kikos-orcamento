@@ -311,7 +311,7 @@ const produtos = [
   { id: 252, nome: "Abdominal", codigo: "MG51", categoria: "Monster Goat", foto: "" },
   { id: 253, nome: "Lombar", codigo: "MG52", categoria: "Monster Goat", foto: "" },
   { id: 254, nome: "Total Hip", codigo: "MG53", categoria: "Monster Goat", foto: "" },
-  { id: 255, nome: "Gráviton", codigo: "MG60", categoria: "Monster Goat", foto: "" },
+  { id: 255, nome: "Gráviton", codigo: "MG60", categoria: "Monster Goat", foto: "assets/images/produtos/pro/monster_goat_graviton.jpg" },
   { id: 256, nome: "Leg Horizontal", codigo: "MG70", categoria: "Monster Goat", foto: "" },
   { id: 257, nome: "Cadeira Extensora", codigo: "MG71", categoria: "Monster Goat", foto: "" },
   { id: 258, nome: "Cadeira Flexora", codigo: "MG72", categoria: "Monster Goat", foto: "" },
@@ -322,7 +322,7 @@ const produtos = [
   { id: 263, nome: "Glúteo", codigo: "MG78", categoria: "Monster Goat", foto: "" },
 
   // ── HAMMER FORCE PM (linha nova — sem foto ainda, produto não publicado no site) ──
-  { id: 264, nome: "Bíceps", codigo: "PM 2037", categoria: "Hammer Force PM", foto: "" },
+  { id: 264, nome: "Bíceps", codigo: "PM 2037", categoria: "Hammer Force PM", foto: "assets/images/produtos/pro/hammer_force_pm_biceps.jpg" },
   { id: 265, nome: "Supino Reto", codigo: "PM 2038", categoria: "Hammer Force PM", foto: "" },
   { id: 266, nome: "Remada", codigo: "PM 2039", categoria: "Hammer Force PM", foto: "" },
   { id: 267, nome: "Supino Inclinado", codigo: "PM 2040", categoria: "Hammer Force PM", foto: "" },
@@ -389,7 +389,7 @@ const produtos = [
   // ── NOVOS (linha Kikos Pro / Showroom, confirmados nesta consolidação) ──
   { id: 324, nome: "Dumbbell Rubber Vermelho Kikos Pro", codigo: "256820", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_dumbbell_rubber_vermelho_kikos_pro.jpg", pesos: [12, 14, 18] },
   { id: 325, nome: "Barra Montada Reta Pu Lightning Bolt Showroom", codigo: "250028S", categoria: "Acessórios", foto: "assets/images/produtos/pro/ac_barra_montada_reta_pu_lightning_bolt.jpg", pesos: [40, 60] },
-
-    { id: 326, nome: "Bike Horizontal KR9.6iX", codigo: "I001331", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_kr9_6ix.jpg" },
+  { id: 326, nome: "Bike Horizontal KR9.6iX", codigo: "I001331", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_kr9_6ix.jpg" },
   { id: 327, nome: "Bike Vertical KV9.5iX", codigo: "I001332", categoria: "Bikes", foto: "assets/images/produtos/pro/bike_kv9_5ix.jpg" },
+
 ];
