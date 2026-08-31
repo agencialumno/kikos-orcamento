@@ -7,16 +7,11 @@
 // da Kikos nem encontrados em nenhuma fonte; status "NOVO" na planilha em
 // 21/08/2026). Adicionar assim que houver foto:
 //
-//   MONSTER GOAT (24 itens, entram em categoria "Monster"):
-//   MG12 Peck Deck (I027868) · MG13 Supino Reto (I027865) · MG20 Crossover (I027863)
-//   MG21 Deltoide (I027864) · MG22 Peitoral Dorsal (I027869) · MG23 Desenvolvimento
-//   de Ombros (I027873) · MG30 Pull Down (I027876) · MG31 Remada Baixa (I027877)
-//   MG33 Puxada Alta (I027875) · MG34 Remada (I027874) · MG40 Bíceps (I027861)
-//   MG42 Tríceps (I027862) · MG51 Abdominal (I027860) · MG52 Lombar (I027859)
-//   MG53 Total Hip (I027858) · MG60 Gráviton (I027866) · MG70 Leg Horizontal
-//   (I027872) · MG71 Cadeira Extensora (I027854) · MG72 Cadeira Flexora (I027856)
-//   MG73 Mesa Flexora (I027855) · MG74 Cadeira Abdutora (I027870) · MG75 Cadeira
-//   Adutora (I027871) · MG77 Panturrilha em Pé (I027867) · MG78 Glúteo (I027857)
+//   MONSTER GOAT: catálogo oficial recebido (T3xx) confirmou 18 dos 24 itens
+//   da planilha original + 1 variante extra (T303L Leg Press 180°, id 328).
+//   Ainda SEM FOTO / SEM CÓDIGO REAL CONFIRMADO (não apareceram no catálogo):
+//   MG20 Crossover (id 242) · MG42 Tríceps (id 251) · MG52 Lombar (id 253)
+//   MG53 Total Hip (id 254) · MG77 Panturrilha em Pé (id 262)
 //
 //   HAMMER FORCE "PM" (7 itens, entram em categoria "Hammer Force"):
 //   PM 2037 Bíceps (I027773) · PM 2038 Supino Reto (I027774) · PM 2041
@@ -296,30 +291,33 @@ const produtos = [
   { id: 239, nome: "Cadeira Adutora e Abdutora", codigo: "T7475", categoria: "Titanium", foto: "assets/images/produtos/pro/tit_cadeira_adutora_abdutora_t7475.jpg" },
 
   // ── MONSTER GOAT (linha nova — sem foto ainda, produto não publicado no site) ──
-  { id: 240, nome: "Peck Deck", codigo: "MG12", categoria: "Monster Goat", foto: "" },
-  { id: 241, nome: "Supino Reto", codigo: "MG13", categoria: "Monster Goat", foto: "" },
+  { id: 240, nome: "Voador Completo", codigo: "T311", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t311_voador_completo.png" },
+  { id: 241, nome: "Supino Reto", codigo: "T308", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t308_supino_reto.png" },
   { id: 242, nome: "Crossover", codigo: "MG20", categoria: "Monster Goat", foto: "" },
-  { id: 243, nome: "Deltoide", codigo: "MG21", categoria: "Monster Goat", foto: "" },
-  { id: 244, nome: "Peitoral Dorsal", codigo: "MG22", categoria: "Monster Goat", foto: "" },
-  { id: 245, nome: "Desenvolvimento de Ombros", codigo: "MG23", categoria: "Monster Goat", foto: "" },
-  { id: 246, nome: "Pull Down", codigo: "MG30", categoria: "Monster Goat", foto: "" },
-  { id: 247, nome: "Remada Baixa", codigo: "MG31", categoria: "Monster Goat", foto: "" },
-  { id: 248, nome: "Puxada Alta", codigo: "MG33", categoria: "Monster Goat", foto: "" },
-  { id: 249, nome: "Remada", codigo: "MG34", categoria: "Monster Goat", foto: "" },
-  { id: 250, nome: "Bíceps", codigo: "MG40", categoria: "Monster Goat", foto: "" },
+  { id: 243, nome: "Deltoide", codigo: "T305", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t305_deltoide.png" },
+  { id: 244, nome: "Peitoral Dorsal", codigo: "T307", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t307_peitoral_dorsal.png" },
+  { id: 245, nome: "Desenvolvimento de Ombros", codigo: "T306", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t306_desenvolvimento_ombros.png" },
+  { id: 246, nome: "Pull Down", codigo: "T335", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t335_pulldown.png" },
+  { id: 247, nome: "Remada Baixa", codigo: "T333", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t333_remada_baixa.png" },
+  { id: 248, nome: "Puxada Alta", codigo: "T312", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t312_puxada_alta.png" },
+  { id: 249, nome: "Remada", codigo: "T334", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t334_remada.png" },
+  { id: 250, nome: "Bíceps", codigo: "T330", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t330_biceps.png" },
   { id: 251, nome: "Tríceps", codigo: "MG42", categoria: "Monster Goat", foto: "" },
-  { id: 252, nome: "Abdominal", codigo: "MG51", categoria: "Monster Goat", foto: "" },
+  { id: 252, nome: "Abdominal", codigo: "T373", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t373_abdominal.png" },
   { id: 253, nome: "Lombar", codigo: "MG52", categoria: "Monster Goat", foto: "" },
   { id: 254, nome: "Total Hip", codigo: "MG53", categoria: "Monster Goat", foto: "" },
-  { id: 255, nome: "Gráviton", codigo: "MG60", categoria: "Monster Goat", foto: "assets/images/produtos/pro/monster_goat_graviton.jpg" },
-  { id: 256, nome: "Leg Horizontal", codigo: "MG70", categoria: "Monster Goat", foto: "" },
-  { id: 257, nome: "Cadeira Extensora", codigo: "MG71", categoria: "Monster Goat", foto: "" },
-  { id: 258, nome: "Cadeira Flexora", codigo: "MG72", categoria: "Monster Goat", foto: "" },
-  { id: 259, nome: "Mesa Flexora", codigo: "MG73", categoria: "Monster Goat", foto: "" },
-  { id: 260, nome: "Cadeira Abdutora", codigo: "MG74", categoria: "Monster Goat", foto: "" },
-  { id: 261, nome: "Cadeira Adutora", codigo: "MG75", categoria: "Monster Goat", foto: "" },
+  { id: 255, nome: "Gráviton", codigo: "T309", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t309_graviton.png" },
+  { id: 256, nome: "Leg Horizontal", codigo: "T303", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t303_leg_horizontal.png" },
+  { id: 257, nome: "Cadeira Extensora", codigo: "T302", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t302_cadeira_extensora.png" },
+  { id: 258, nome: "Cadeira Flexora", codigo: "T323", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t323_cadeira_flexora.png" },
+  { id: 259, nome: "Mesa Flexora", codigo: "T301", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t301_mesa_flexora.png" },
+  { id: 260, nome: "Cadeira Abdutora", codigo: "T321", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t321_cadeira_abdutora.png" },
+  { id: 261, nome: "Cadeira Adutora", codigo: "T322", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t322_cadeira_adutora.png" },
   { id: 262, nome: "Panturrilha em Pé", codigo: "MG77", categoria: "Monster Goat", foto: "" },
-  { id: 263, nome: "Glúteo", codigo: "MG78", categoria: "Monster Goat", foto: "" },
+  { id: 263, nome: "Glúteo", codigo: "T324", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t324_gluteo.png" },
+
+  // ── MONSTER GOAT: variante extra encontrada no catálogo oficial (não estava na planilha original) ──
+  { id: 328, nome: "Leg Press 180°", codigo: "T303L", categoria: "Monster Goat", foto: "assets/images/produtos/pro/goat_t303l_leg_press_180.png" },
 
   // ── HAMMER FORCE PM (linha nova — sem foto ainda, produto não publicado no site) ──
   { id: 264, nome: "Bíceps", codigo: "PM 2037", categoria: "Hammer Force PM", foto: "assets/images/produtos/pro/hammer_force_pm_biceps.jpg" },
