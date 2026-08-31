@@ -748,3 +748,8 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(230, 51, 41, 0.25);
 }
+
+/* Fundo preto para os cards da linha Monster Goat (fotos em fundo escuro) */
+.produto-card[data-categoria="Monster Goat"] img {
+  background-color: #000;
+}

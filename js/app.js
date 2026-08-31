@@ -226,7 +226,7 @@ function buscarProdutos() {
 
 function gerarCardHTML(p) {
   return `
-    <div class="produto-card">
+    <div class="produto-card" data-categoria="${p.categoria}">
       ${p.destaque ? `<div class="badge-destaque">Destaque</div>` : ""}
       <img src="${p.foto}" alt="${p.nome}" onerror="this.style.display='none'">
       <div class="produto-info">
